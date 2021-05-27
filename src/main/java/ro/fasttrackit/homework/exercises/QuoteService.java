@@ -1,8 +1,6 @@
 package ro.fasttrackit.homework.exercises;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class QuoteService {
 	private final List<Quote> quotes;
@@ -38,12 +36,14 @@ public class QuoteService {
 		return result;
 	}
 
-	public void setFavourite(int id) {
+	public Set<String> setFavourite(int id) {
+		Set<String> result = new HashSet<>();
 		for (Quote quote : quotes) {
 			if (quote.getId() == id) {
-				System.out.println(quote);
+				result.add(quote.getQuote());
 			}
 		}
+		return result;
 	}
 
 	public List<Quote> getFavourites() {

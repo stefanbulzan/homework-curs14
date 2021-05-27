@@ -40,8 +40,8 @@ public class ReadFile {
 		String author = quoteData[0];
 		String quote = quoteData[1];
 
-		Scanner scanner = new Scanner(quoteData[0]); // nu reusesc sa imi dau seama de ce nu merge numaratoarea...
-		int id = 0;                                  // se opreste la 1 si ramane tot pe 1 si la urmatoarea linie
+		Scanner scanner = new Scanner(quoteData[0]);
+		int id = 0;
 		while (scanner.hasNextLine()) {
 			scanner.nextLine();
 			id++;
