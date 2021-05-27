@@ -28,29 +28,19 @@ public class ReadFile {
 		List<Quote> quotes = new ArrayList<>();
 		BufferedReader fileReader = new BufferedReader(new FileReader("src/main/resources/quotes.txt"));
 		String line;
+		int id=1;
 		while ((line = fileReader.readLine()) != null) {
-			quotes.add(quoteInfo(line));
+			quotes.add(quoteInfo(id++,line));
 		}
 		return quotes;
 	}
 
-	private static Quote quoteInfo(String quoteInfo) {
+	private static Quote quoteInfo(int id, String quoteInfo) {
 		String[] quoteData = quoteInfo.split("~");
 		boolean favourite = false;
 		String author = quoteData[0];
 		String quote = quoteData[1];
 
-		Scanner scanner = new Scanner(quoteData[0]);
-		int id = 0;
-		while (scanner.hasNextLine()) {
-			scanner.nextLine();
-			id++;
-		}
-		scanner.close();
-
-		if (quoteData[0].contains("Lao Tzu")) {
-			favourite = true;
-		}
 		return new Quote(id, author, quote, favourite);
 	}
 }
